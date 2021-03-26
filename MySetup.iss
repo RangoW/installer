@@ -72,6 +72,9 @@
   #define MyAppSetupExe   MyAppSetupExe + "_" + "Setup"
 #endif
 
+#define CERTSHA1 "c2ade52c10b6ccae338238b1c5a57fc60bb577b5"
+#define CERTSHA2 "15e5cccb307208ef06f0a75518769edf6bf93228"
+
 [Setup]
 AppId                           = {{#MyAppID}
 AppName                         = {#MyAppName}
@@ -141,6 +144,9 @@ UninstallDisplayIcon            = {app}\{#MyAppExeName},0
 UninstallFilesDir               = {app}\Uninstaller
 #endif
 OutputBaseFilename              = {#MyAppSetupExe}
+
+SignTool=signtool sign /a /sha1 {#CertSHA1} /fd sha1 /t http://timestamp.comodoca.com/authenticode $f
+SignTool=signtool sign /a /sha1 {#CertSHA2} /as /fd sha256 /td sha256 /tr http://timestamp.comodoca.com/rfc3161 $f
 
 [Languages]
 ;此段的第一个语言为默认语言，除此之外，语言的名称与顺序都无所谓
