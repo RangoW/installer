@@ -145,6 +145,7 @@ UninstallFilesDir               = {app}\Uninstaller
 #endif
 OutputBaseFilename              = {#MyAppSetupExe}
 
+;CertSHA1\CertSHA2 代表签名证书的指纹，可在 certmgr.msc 中查看
 SignTool=signtool sign /a /sha1 {#CertSHA1} /fd sha1 /t http://timestamp.comodoca.com/authenticode $f
 SignTool=signtool sign /a /sha1 {#CertSHA2} /as /fd sha256 /td sha256 /tr http://timestamp.comodoca.com/rfc3161 $f
 

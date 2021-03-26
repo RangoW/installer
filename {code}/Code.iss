@@ -570,7 +570,7 @@ begin
     pr := (i1 * 100) / i2;
     label_install_progress.Caption := Format('%d', [Round(pr)]) + '%';
     w := Round((ScaleX(560) * pr) / 100);
-    ImgSetPosition(image_progressbar_foreground, ScaleX(20), ScaleY(374), w, ScaleY(6));
+    ImgSetPosition(image_progressbar_foreground, ScaleX(20), ScaleY(374), ScaleX(w), ScaleY(6));
     ImgSetVisiblePart(image_progressbar_foreground, 0, 0, w, ScaleY(6));
     ImgApplyChanges(WizardForm.Handle);
   end;
@@ -977,7 +977,7 @@ begin
       AutoSize := False;
       Left := ScaleX(547);
       Top := ScaleY(349);
-      ClientWidth := ScaleX(30);
+      ClientWidth := ScaleX(35);
       ClientHeight := ScaleY(30);
       Font.Size := 10;
       Font.Color := clBlack;
